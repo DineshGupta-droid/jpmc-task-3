@@ -20,6 +20,10 @@ class Graph extends Component<IProps, {}> {
 
   componentDidMount() {
     // Get element from the DOM.
+    if(this.table){
+      this.table.update([
+        DataManipulator.generateRow(this.props.data),] as unknown as TableData);
+    }
     const elem = document.getElementsByTagName('perspective-viewer')[0] as unknown as PerspectiveViewerElement;
 
     const schema = {
